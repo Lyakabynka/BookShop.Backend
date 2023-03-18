@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using BookShop.Application.CQRS.Queries.GetBookByTitle;
 using BookShop.Application.Interfaces;
 using BookShop.Domain;
 using MediatR;

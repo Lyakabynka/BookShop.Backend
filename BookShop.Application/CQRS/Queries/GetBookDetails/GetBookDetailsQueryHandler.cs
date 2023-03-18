@@ -1,4 +1,4 @@
-﻿using BookShop.Application.CQRS.Exceptions;
+﻿using BookShop.Application.Common.Exceptions;
 using BookShop.Application.Interfaces;
 using BookShop.Domain;
 using MediatR;
@@ -22,7 +22,7 @@ namespace BookShop.Application.CQRS.Queries.GetBookById
                 throw new NotFoundException(nameof(Book),request.Id);
             }
 
-            return 
+            return book;
         }
     }
 }

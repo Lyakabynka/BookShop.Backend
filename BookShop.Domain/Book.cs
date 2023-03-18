@@ -6,12 +6,10 @@
         public string Title { get; set; }
         public string Description { get; set; }
         public int Pages { get; set; }
-        public DateTime PublishingDate { get; set; }
+        public DateOnly PublishingDate { get; set; }
+        public float Price { get; set; }
 
-
-        public Author Author { get; set; }
-
-        public Order? Order { get; set; }
+        public IEnumerable<Order>? Orders { get; set; }
 
     }
 }

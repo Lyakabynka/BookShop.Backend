@@ -7,7 +7,6 @@ namespace BookShop.Application.Interfaces
     {
         DbSet<Book> Books { get; set; }
         DbSet<Order> Orders { get; set; }
-        DbSet<Author> Authors { get; set; }
         
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

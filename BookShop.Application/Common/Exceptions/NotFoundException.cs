@@ -1,4 +1,4 @@
-﻿namespace BookShop.Application.Exceptions
+﻿namespace BookShop.Application.Common.Exceptions
 {
     public class NotFoundException : Exception
     {

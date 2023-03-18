@@ -11,7 +11,7 @@ namespace BookShop.Persistence.EntityTypeConfigurations
         {
             builder.HasKey(x => x.Id);
             builder.HasIndex(x => x.Id).IsUnique();
-            builder.HasMany(x=>x.Books).WithOne(x => x.Order);
+            builder.HasMany(x=>x.Books).WithMany(x => x.Order);
         }
     }
 }
