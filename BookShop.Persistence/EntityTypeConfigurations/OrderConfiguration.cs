@@ -9,9 +9,9 @@ namespace BookShop.Persistence.EntityTypeConfigurations
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.HasKey(x => x.Id);
-            builder.HasIndex(x => x.Id).IsUnique();
-            builder.HasMany(x=>x.Books).WithMany(x => x.Order);
+            builder.HasKey(o => o.Id);
+            builder.HasIndex(o => o.Id).IsUnique();
+            builder.HasMany(o=>o.Books).WithMany(b => b.Orders);
         }
     }
 }

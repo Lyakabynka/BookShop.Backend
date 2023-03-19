@@ -4,7 +4,8 @@
     {
         public int Id { get; set; }
         public float Price { get; set; }
+        public DateOnly CreatedAt { get; set; }
 
-        public IEnumerable<Book> Books { get; set; }
+        public List<Book> Books { get; set; }
     }
 }

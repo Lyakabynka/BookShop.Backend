@@ -3,7 +3,7 @@ using AutoMapper;
 using BookShop.Application.Common.Mappings;
 using BookShop.Domain;
 
-namespace BookShop.Application.CQRS.Queries.GetBookByTitle
+namespace BookShop.Application.CQRS.Queries
 {
     public class BookLookUpDto : IMapWith<Book>
     {

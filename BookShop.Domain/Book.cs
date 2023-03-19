@@ -9,7 +9,7 @@
         public DateOnly PublishingDate { get; set; }
         public float Price { get; set; }
 
-        public IEnumerable<Order>? Orders { get; set; }
+        public List<Order>? Orders { get; set; }
 
     }
 }

@@ -2,10 +2,8 @@
 
 namespace BookShop.Application.CQRS.Commands.CreateOrder
 {
-    public class CreateOrderCommand : IRequest<Unit>
+    public class CreateOrderCommand : IRequest
     {
-        public int Id { get; set; }
         public IEnumerable<int> BookIds { get; set; }
-
     }
 }
