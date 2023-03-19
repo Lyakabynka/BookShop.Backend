@@ -51,7 +51,6 @@ namespace BookShop.Presentation.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookOrder", x => new { x.BooksId, x.OrdersId });
                     table.ForeignKey(
                         name: "FK_BookOrder_Books_BooksId",
                         column: x => x.BooksId,
@@ -65,6 +64,11 @@ namespace BookShop.Presentation.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookOrder_BooksId",
+                table: "BookOrder",
+                column: "BooksId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BookOrder_OrdersId",

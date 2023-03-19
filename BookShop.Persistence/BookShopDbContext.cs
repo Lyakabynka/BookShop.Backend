@@ -26,6 +26,12 @@ namespace BookShop.Persistence
                 .Property(o=>o.CreationDate)
                 .HasConversion(new DateOnlyConverter());
 
+            modelBuilder.Entity<Book>()
+                .HasMany(b => b.Orders)
+                .WithMany(o => o.Books)
+                .UsingEntity(jt=>jt.HasNoKey());
+
+
             base.OnModelCreating(modelBuilder);
         }
     }

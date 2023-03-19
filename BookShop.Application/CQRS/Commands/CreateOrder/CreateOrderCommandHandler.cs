@@ -3,6 +3,7 @@ using BookShop.Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using BookShop.Application.Common.Exceptions;
+using System.Text.Json;
 
 namespace BookShop.Application.CQRS.Commands.CreateOrder
 {
@@ -14,12 +15,15 @@ namespace BookShop.Application.CQRS.Commands.CreateOrder
 
         public async Task Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
-            List<Book> books = new List<Book>();
-            
-            foreach (var itemid in request.BookIds)
-            {
-                books.Add((await _context.Books.FirstOrDefaultAsync(u => u.Id == itemid, cancellationToken))!);
-            }
+            var booksDistinct = await _context.Books
+                .Where(b => request.BookIds.Contains(b.Id))
+                .ToListAsync(cancellationToken);
+
+            var books = request.BookIds
+                .Select(id => booksDistinct.FirstOrDefault(b=>b.Id==id)!)
+                .ToList();
+
+            Console.WriteLine(JsonSerializer.Serialize(books));
 
             if (books == null || books.Count != request.BookIds.Count())
             {

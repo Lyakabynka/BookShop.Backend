@@ -34,7 +34,7 @@
                 switch (ex)
                 {
                     case NotFoundException notFoundException:
-                        code = HttpStatusCode.NoContent;
+                        code = HttpStatusCode.OK;
                         break;
                 }
 

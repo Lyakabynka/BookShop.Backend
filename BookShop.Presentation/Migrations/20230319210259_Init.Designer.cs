@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookShop.Presentation.Migrations
 {
     [DbContext(typeof(BookShopDbContext))]
-    [Migration("20230319185247_Init")]
+    [Migration("20230319210259_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -33,7 +33,7 @@ namespace BookShop.Presentation.Migrations
                     b.Property<int>("OrdersId")
                         .HasColumnType("int");
 
-                    b.HasKey("BooksId", "OrdersId");
+                    b.HasIndex("BooksId");
 
                     b.HasIndex("OrdersId");
 

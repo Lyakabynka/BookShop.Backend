@@ -73,9 +73,9 @@ namespace BookShop.Presentation.Controllers
         /// </remark>
         /// <param name="id">Book ids to include into the order (List of int)</param>
         /// <returns>Returns NoContent</returns>
-        /// <response code="204">Success</response>
-        [HttpPost("by-ids/{ids}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        /// <response code="200">Success</response>
+        [HttpPost("by-ids")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateOrderByIds([FromQuery] List<int> id)
         {
             var command = new CreateOrderCommand()
@@ -85,7 +85,7 @@ namespace BookShop.Presentation.Controllers
 
             await Mediator.Send(command);
 
-            return NoContent();
+            return Ok();
         }
     }
 }
