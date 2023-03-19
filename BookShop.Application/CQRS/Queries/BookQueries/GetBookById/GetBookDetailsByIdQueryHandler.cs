@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookShop.Application.CQRS.Queries.BookQueries.GetBookById
 {
-    public class GetBookDetailsQueryHandler : IRequestHandler<GetBookByIdQuery, BookVm>
+    public class GetBookByIdQueryHandler : IRequestHandler<GetBookByIdQuery, BookVm>
     {
         private readonly IBookShopDbContext _context;
         private readonly IMapper _mapper;
-        public GetBookDetailsQueryHandler(IBookShopDbContext context, IMapper mapper) =>
+        public GetBookByIdQueryHandler(IBookShopDbContext context, IMapper mapper) =>
             (_context,_mapper) = (context,mapper);
         public async Task<BookVm> Handle(GetBookByIdQuery request, CancellationToken cancellationToken)
         {

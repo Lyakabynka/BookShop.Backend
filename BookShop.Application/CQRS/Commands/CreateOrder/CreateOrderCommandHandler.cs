@@ -24,7 +24,7 @@ namespace BookShop.Application.CQRS.Commands.CreateOrder
             if (books == null || books.Count != request.BookIds.Count())
             {
                 throw new NotFoundException(
-                    nameof(IEnumerable<Book>),
+                    nameof(List<Book>),
                     string.Join(", ", request.BookIds));
             }
 

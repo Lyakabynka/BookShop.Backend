@@ -15,7 +15,8 @@ namespace BookShop.Application.CQRS.Queries.OrderQueries.GetOrderById
             (_context,_mapper) = (context,mapper);
         public async Task<OrderLookUpDto> Handle(GetOrderByIdQuery request, CancellationToken cancellationToken)
         {
-            var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == request.Id, cancellationToken);
+            var order = await _context.Orders
+                .FirstOrDefaultAsync(o => o.Id == request.Id, cancellationToken);
 
             if (order == null)
             {
