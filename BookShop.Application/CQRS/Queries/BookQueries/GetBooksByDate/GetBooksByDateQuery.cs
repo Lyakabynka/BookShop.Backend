@@ -1,5 +1,4 @@
-﻿
-using MediatR;
+﻿using MediatR;
 
 namespace BookShop.Application.CQRS.Queries.BookQueries.GetBooksByDate
 {

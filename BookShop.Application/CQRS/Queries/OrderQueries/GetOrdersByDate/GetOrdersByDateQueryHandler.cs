@@ -17,7 +17,7 @@ namespace BookShop.Application.CQRS.Queries.OrderQueries.GetOrderByDate
         public async Task<List<OrderLookUpDto>> Handle(GetOrdersByDateQuery request, CancellationToken cancellationToken)
         {
             var orders = await _context.Orders
-                .Where(o => o.CreatedAt == request.CreatedAt)
+                .Where(o => o.CreationDate == request.CreatedAt)
                 .ProjectTo<OrderLookUpDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
 

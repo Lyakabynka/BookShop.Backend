@@ -17,7 +17,15 @@ namespace BookShop.Persistence
         {
             modelBuilder.ApplyConfiguration(new BookConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
-            modelBuilder.ApplyConfiguration(new AuthorConfiguration());
+
+            modelBuilder.Entity<Book>()
+                .Property(b => b.PublishingDate)
+                .HasConversion(new DateOnlyConverter());
+
+            modelBuilder.Entity<Order>()
+                .Property(o=>o.CreationDate)
+                .HasConversion(new DateOnlyConverter());
+
             base.OnModelCreating(modelBuilder);
         }
     }

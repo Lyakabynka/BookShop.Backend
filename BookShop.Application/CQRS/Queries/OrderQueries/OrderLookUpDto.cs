@@ -9,7 +9,7 @@ namespace BookShop.Application.CQRS.Queries.OrderQueries
     {
         public int Id { get; set; }
         public float Price { get; set; }
-        public DateOnly CreatedAt { get; set; }
+        public DateOnly CreationDate { get; set; }
 
         public List<BookLookUpDto> BookLookUpDtos { get; set; }
 
@@ -20,8 +20,8 @@ namespace BookShop.Application.CQRS.Queries.OrderQueries
                     options.MapFrom(odto => odto.Id))
                 .ForMember(o => o.Price, options =>
                     options.MapFrom(odto => odto.Price))
-                .ForMember(o => o.CreatedAt, options =>
-                    options.MapFrom(odto => odto.CreatedAt))
+                .ForMember(o => o.CreationDate, options =>
+                    options.MapFrom(odto => odto.CreationDate))
                 .ForMember(o=>o.BookLookUpDtos,options=>
                     options.MapFrom(odto => odto.Books));
         }

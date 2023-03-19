@@ -1,4 +1,3 @@
-﻿
 namespace BookShop.Presentation.Middleware
 {
     public static class CustomExceptionHandlerMiddlewareExtensions

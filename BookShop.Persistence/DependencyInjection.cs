@@ -9,10 +9,10 @@ namespace BookShop.Persistence
     {
         public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration) 
         {
-            var connectionString = configuration["DefaultConnection"];
+            var connectionString = configuration.GetConnectionString("DefaultConnection")!;
             services.AddDbContext<BookShopDbContext>(options =>
             {
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer(connectionString, b=>b.MigrationsAssembly("BookShop.Presentation"));
             });
             services.AddScoped<IBookShopDbContext>(provider =>  
                 provider.GetService<BookShopDbContext>()!);
